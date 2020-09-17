@@ -3,11 +3,11 @@ const cors = require('cors');
 const sendGrid = require('@sendGrid/mail');
 const path=require("path");
 const app = express();
-
+app.use(express.static(path.join(__dirname, "client/build")));
 app.use(express.json());
 
 app.use(cors());
-app.use(express.static(path.join(__dirname, "client/build")));
+
 app.use((req,res,next)=>{
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE');
