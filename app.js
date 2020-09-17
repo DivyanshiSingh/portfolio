@@ -7,7 +7,7 @@ const app = express();
 app.use(express.json());
 
 app.use(cors());
-app.use(express.static(path.join(__dirname, "Client/build")));
+app.use(express.static(path.join(__dirname, "client/build")));
 app.use((req,res,next)=>{
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE');
@@ -26,7 +26,7 @@ app.post('/api/emial', (req, res, next)=>{
 });
 
 app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname + "/Client/build/index.html"));
+    res.sendFile(path.join(__dirname + "/client/build/index.html"));
     });
     
 app.listen(process.env.PORT || 5000, () => {
